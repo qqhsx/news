@@ -28,7 +28,7 @@ jobs:
           pip3 install bs4
           pip3 install html2text
           python qq.py
-          python index_generator.py
+          # python index_generator.py
           git add .
           git commit --allow-empty -m "spider"
           git push -f
