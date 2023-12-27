@@ -1,4 +1,5 @@
 name: qqnews
+
 on:
   push:
     branches:
@@ -10,15 +11,21 @@ jobs:
   run-python-script:
     runs-on: ubuntu-latest
     steps:
-      - name: checkoutss
+      - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1  # 仅检出最近几次提交的文件
 
-      - name: instpython3
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.11.0'
+          
+      - name: Cache pip
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
           
       - name: Commit files
         run: |
