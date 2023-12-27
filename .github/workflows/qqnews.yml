@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: checkoutss
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 7  # 仅检出最近几次提交的文件
 
       - name: instpython3
         uses: actions/setup-python@v2
