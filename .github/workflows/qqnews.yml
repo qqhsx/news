@@ -38,6 +38,7 @@ jobs:
           
       - name: Commit files
         run: |
+          cd my_repo
           git config --local user.email "378600950@qq.com"
           git config --local user.name "qqhsx"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
@@ -49,4 +50,4 @@ jobs:
           # python index_generator.py
           git add .
           git commit --allow-empty -m "spider"
-          git push -f
+          git push
