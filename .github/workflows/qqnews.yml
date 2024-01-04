@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Set up sparse checkout
+        run: |
+          git sparse-checkout init --cone
+          git sparse-checkout set qq.py
 
       - name: Set up Python
         uses: actions/setup-python@v2
