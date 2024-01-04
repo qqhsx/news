@@ -47,4 +47,4 @@ jobs:
           python qq.py
           git add .
           git commit --allow-empty -m "spider"
-          git push -f
+          git push origin main
