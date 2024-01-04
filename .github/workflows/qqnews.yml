@@ -40,12 +40,11 @@ jobs:
           cd my_repo
           git config --local user.email "378600950@qq.com"
           git config --local user.name "qqhsx"
-          git pull --rebase
+          git pull origin main
           pip3 install requests
           pip3 install bs4
           pip3 install html2text
           python qq.py
-          python index_generator.py  # 这行是新添加的
           git add .
           git commit --allow-empty -m "spider"
-          git push -f
+          git push origin main
