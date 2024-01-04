@@ -38,7 +38,7 @@ jobs:
           
       - name: Commit files
         run: |
-          cd my_repo
+          # cd my_repo
           git config --local user.email "378600950@qq.com"
           git config --local user.name "qqhsx"
           pip3 install requests
