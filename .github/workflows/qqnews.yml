@@ -22,6 +22,8 @@ jobs:
           echo '2023/12/' >> .git/info/sparse-checkout
           echo '2024/01/' >> .git/info/sparse-checkout
           git remote add -f origin https://${{ github.actor }}:${{ secrets.QQNEWS_TOKEN }}@github.com/${{ github.repository }}.git
+          git pull origin main
+          
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -40,7 +42,6 @@ jobs:
           cd my_repo
           git config --local user.email "378600950@qq.com"
           git config --local user.name "qqhsx"
-          git pull origin main
           pip3 install requests
           pip3 install bs4
           pip3 install html2text
