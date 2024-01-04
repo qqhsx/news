@@ -20,6 +20,7 @@ jobs:
           echo 'qq.py' >> .git/info/sparse-checkout
           echo 'requirements.txt' >> .git/info/sparse-checkout
           echo '2023/12/' >> .git/info/sparse-checkout
+          echo '2024/01/' >> .git/info/sparse-checkout
           git remote add -f origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
       - name: Set up Python
         uses: actions/setup-python@v2
