@@ -11,12 +11,17 @@ jobs:
   run-python-script:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup sparse-checkout
+        run: |
+          mkdir my_repo
+          cd my_repo
+          git init
+          git config core.sparseCheckout true
+          echo 'qq.py' >> .git/info/sparse-checkout
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Set up sparse checkout
-        run: |
-          git sparse-checkout init --cone
-          git sparse-checkout set qq.py
+        with:
+          path: my_repo
 
       - name: Set up Python
         uses: actions/setup-python@v2
